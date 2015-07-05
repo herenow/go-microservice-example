@@ -1,2 +1,2 @@
-web: go-service-example -port=$PORT
+web: go-microservice-example -port=$PORT
 worker: dispatcher-worker
