@@ -4,7 +4,7 @@
 
 # Gophers at work! Don't bother.
 
-# Dependency managment (bundling/vendoring)
+### Dependency managment (bundling/vendoring)
 
 We manage dependencies by vendoring it, we use [Godep](https://github.com/tools/godep), and so should you :)
 
@@ -14,9 +14,45 @@ $ godep restore
 ```
 
 
-# Deploying to heroku
+### Development enviroment
+
+I think most people are using [docker](https://www.docker.com/) by now, so do we. We setup out container using the heroku [cedar-14 docker image](https://registry.hub.docker.com/u/heroku/cedar/).
+
+#### Dependencies
+You need to have on your system, the [heroku cli](https://github.com/heroku/heroku-cli), the [heroku-docker plugin](https://github.com/heroku/heroku-docker/), and [docker](http://docs.docker.com/).
+
+#### Install the heroku-docker plugin
+Once you have `heroku` and `docker` installed, run this to install the heroku-docker plugin.
+
+```bash
+$ heroku plugins:install heroku-docker
+```
+
+#### Run the app
+
+```bash
+$ heroku docker:start
+```
+
+You should see something like this, after docker is setup:
+![](https://www.dropbox.com/s/61cmejcoaedyk22/Screenshot%202015-07-05%2018.46.36.png?dl=0&raw=1)
+
+#### Start the app
+
+```bash
+$ heroku docker:start
+```
+
+
+### Deploying to heroku
 
 First, create a heroku app using the Go buildpack (provided by heroku).
+
+* Note: [https://blog.heroku.com/archives/2015/5/5/introducing_heroku_docker_release_build_deploy_heroku_apps_with_docker]
+  * I wish to soon stop using Heroku's buildpack and deploy throught docker images.
+  * I'm still figuring out some nuances about this approach. 
+  * Such as, the slug size is too big, and deployment is considerably slower.
+  * Also, flags are not properly passed, due to `docker run` limitations.
 
 ```bash
 $ heroku create -b https://github.com/heroku/heroku-buildpack-go.git
@@ -34,3 +70,4 @@ Now deploy :)
 ```bash
 $ git push heroku master
 ```
+
