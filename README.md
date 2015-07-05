@@ -4,6 +4,15 @@
 
 # Gophers at work! Don't bother.
 
+# Dependency managment (bundling/vendoring)
+
+We manage dependencies by vendoring it, we use [Godep](https://github.com/tools/godep), and so should you :)
+
+You can use `godep restore` to install the packages specified versions to your `$GOPATH`.
+```bash
+$ godep restore
+```
+
 
 # Deploying to heroku
 
