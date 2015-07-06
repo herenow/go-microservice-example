@@ -19,7 +19,8 @@ $ godep restore
 I think most people are using [docker](https://www.docker.com/) by now, so do we. We setup out container using the heroku [cedar-14 docker image](https://registry.hub.docker.com/u/heroku/cedar/).
 
 #### Dependencies
-You need to have on your system, the [heroku cli](https://github.com/heroku/heroku-cli), the [heroku-docker plugin](https://github.com/heroku/heroku-docker/), and [docker](http://docs.docker.com/).
+You need to have on your system, the [heroku cli](https://github.com/heroku/heroku-cli), the [heroku-docker plugin](https://github.com/heroku/heroku-docker/), and [docker](http://docs.docker.com/) (my version is `Docker version 1.7.0, build 0baf609
+`).
 
 #### Install the heroku-docker plugin
 Once you have `heroku` and `docker` installed, run this to install the heroku-docker plugin.
