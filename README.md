@@ -48,12 +48,6 @@ $ heroku docker:start
 
 First, create a heroku app using the Go buildpack (provided by heroku).
 
-* Note: [https://blog.heroku.com/archives/2015/5/5/introducing_heroku_docker_release_build_deploy_heroku_apps_with_docker]
-  * I wish to soon stop using Heroku's buildpack and deploy throught docker images.
-  * I'm still figuring out some nuances about this approach. 
-  * Such as, the slug size is too big, and deployment is considerably slower.
-  * Also, flags are not properly passed, due to `docker run` limitations.
-
 ```bash
 $ heroku create -b https://github.com/heroku/heroku-buildpack-go.git
 ```
@@ -71,3 +65,15 @@ Now deploy :)
 $ git push heroku master
 ```
 
+#### Deploying from docker image
+
+Note that you can deploy to any docker compatible infrastructure, in heroku you can use the following commands to do so.
+
+* Note: https://blog.heroku.com/archives/2015/5/5/introducing_heroku_docker_release_build_deploy_heroku_apps_with_docker
+  * This is still in beta (Golang is not officially supported)
+  * I'm still figuring out some nuances about this approach.
+  * Such as, the slug size is too big, and deployment is considerably slower.
+
+```bash
+$ heroku docker:release
+```
